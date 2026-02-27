@@ -16,7 +16,6 @@ class MiniMapView @JvmOverloads constructor(
 
     private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#101114") }
     private val wallPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#333840") }
-    private val exploredPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#1c2027") }
     private val visiblePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#252b35") }
     private val exitPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#ffd54f") }
     private val bossPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.parseColor("#ff5252") }
@@ -60,13 +59,11 @@ class MiniMapView @JvmOverloads constructor(
             canvas.drawRect(x1, y1, x1 + cell, y1 + cell, paint)
         }
 
-        val explored = snap.explored.toSet()
         val visible = snap.visible.toSet()
 
-        explored.forEach { p -> drawCell(p.x, p.y, exploredPaint) }
         visible.forEach { p -> drawCell(p.x, p.y, visiblePaint) }
-        snap.blocks.filter { it in explored || it in visible }.forEach { p -> drawCell(p.x, p.y, wallPaint) }
-        if (snap.exit in explored || snap.exit in visible) drawCell(snap.exit.x, snap.exit.y, exitPaint)
+        snap.blocks.filter { it in visible }.forEach { p -> drawCell(p.x, p.y, wallPaint) }
+        if (snap.exit in visible) drawCell(snap.exit.x, snap.exit.y, exitPaint)
         snap.boss?.takeIf { it in visible }?.let { drawCell(it.x, it.y, bossPaint) }
         snap.mount?.takeIf { it in visible }?.let { drawCell(it.x, it.y, mountPaint) }
         snap.treasure?.takeIf { it in visible }?.let { drawCell(it.x, it.y, treasurePaint) }

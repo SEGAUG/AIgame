@@ -1113,6 +1113,7 @@ class GameUI:
         self.active_quests = []
         self.completed_quests = []
         self.current_story = {}
+        self.minimap_visible_span = 4
 
         self.player = self.build_new_player()
 
@@ -1258,6 +1259,36 @@ class GameUI:
             self.log_box.insert("end", text + "\n")
         self.log_box.configure(state="disabled")
         self.log_box.see("end")
+
+    def opening_story_lines(self):
+        name = self.player.get("name", "无名")
+        life_id = self.life_id if self.life_id is not None else "?"
+        main_elem = self.player_main_element()
+        elem_desc = {
+            "金": "锋锐开路，攻伐见长",
+            "木": "生机绵长，恢复稳健",
+            "水": "以柔克刚，善守反击",
+            "火": "爆发迅疾，先手压制",
+            "土": "厚重不移，护体强横",
+            "时间": "迟速由心，掌控节奏",
+            "空间": "虚实变换，穿插突进",
+        }
+        talents = [t.get("name", "") for t in self.player.get("talents", []) if t.get("name")]
+        talent_text = "、".join(talents) if talents else "凡骨未显"
+        return [
+            "【序章】灵潮复苏，四族并立，万界归墟将启。",
+            f"【身世】你名为{name}，第{life_id}世入道者，天赋：{talent_text}。",
+            f"【命途】主修{main_elem}，{elem_desc.get(main_elem, '以道心破局')}。",
+            "【目标】活下去，破境成名，最终踏入归墟终局。",
+        ]
+
+    def show_opening_story(self, force=False):
+        if not force and self.player.get("opening_story_shown"):
+            return False
+        for line in self.opening_story_lines():
+            self.log(line, "system")
+        self.player["opening_story_shown"] = True
+        return True
 
     def play_dialogue(self, dlg_id: str):
         dlg = self.dialogues.get(dlg_id)
@@ -2067,6 +2098,7 @@ class GameUI:
             "time_tick": 0,
             "age_months": 0,
             "lifespan_months": 0,
+            "opening_story_shown": False,
         }
 
     def generate_affinity(self):
@@ -2133,6 +2165,8 @@ class GameUI:
             self.player["lifespan_months"] = self.compute_lifespan_months()
         else:
             self.player["lifespan_months"] = max(self.player["lifespan_months"], self.compute_lifespan_months())
+        if "opening_story_shown" not in self.player:
+            self.player["opening_story_shown"] = False
         for f in NATION_FACTIONS:
             self.player["reputation"].setdefault(f["id"], 0)
         if "faction_bonus_applied" not in self.player:
@@ -2314,6 +2348,8 @@ class GameUI:
         if self.maze:
             self.describe()
         self.log("已加载存档，继续旅程。")
+        if self.show_opening_story(force=False):
+            self.save_game()
         return True
 
     def manual_save(self):
@@ -2359,6 +2395,7 @@ class GameUI:
         self.btn_sect.config(state="disabled")
         self.show_character_creation()
         self.load_chapter(0)
+        self.show_opening_story(force=True)
         self.log(f"新生旅者 ID #{self.life_id} 已启程。")
         self.save_game()
 
@@ -3269,12 +3306,13 @@ class GameUI:
         age = self.player.get("age_months", 0)
         life = self.player.get("lifespan_months", 0)
         month = self.current_month()
+        visible_cells = self.minimap_visible_cells(self.pos)
         boss_pos = self.find_boss_pos()
-        boss_hint = f" | 首领方向:{self.direction_hint(self.pos, boss_pos)}" if boss_pos else ""
+        boss_hint = f" | 首领方向:{self.direction_hint(self.pos, boss_pos)}" if boss_pos and boss_pos in visible_cells else ""
         mount_pos = self.find_event_pos("mount")
         treasure_pos = self.find_event_pos("treasure")
-        mount_hint = f" | 坐骑方向:{self.direction_hint(self.pos, mount_pos)}" if mount_pos else ""
-        treasure_hint = f" | 宝材方向:{self.direction_hint(self.pos, treasure_pos)}" if treasure_pos else ""
+        mount_hint = f" | 坐骑方向:{self.direction_hint(self.pos, mount_pos)}" if mount_pos and mount_pos in visible_cells else ""
+        treasure_hint = f" | 宝材方向:{self.direction_hint(self.pos, treasure_pos)}" if treasure_pos and treasure_pos in visible_cells else ""
         info = (
             f"{self.maze['name']} | 坐标 ({x}, {y}) | {status} | "
             f"可通行: W({ok(can['w'])}) S({ok(can['s'])}) A({ok(can['a'])}) D({ok(can['d'])}) | "
@@ -3317,6 +3355,22 @@ class GameUI:
                 return pos
         return None
 
+    def minimap_visible_cells(self, center=None):
+        if not self.maze:
+            return set()
+        if center is None:
+            center = self.pos
+        span = max(1, int(getattr(self, "minimap_visible_span", 4)))
+        half_left = (span - 1) // 2
+        half_right = span // 2
+        cx, cy = center
+        visible = set()
+        for x in range(cx - half_left, cx + half_right + 1):
+            for y in range(cy - half_left, cy + half_right + 1):
+                if 0 <= x < self.maze["w"] and 0 <= y < self.maze["h"]:
+                    visible.add((x, y))
+        return visible
+
     def draw_minimap(self):
         if not self.maze or not getattr(self, "minimap", None):
             return
@@ -3333,32 +3387,41 @@ class GameUI:
         oy = (canvas_h - map_h) // 2
 
         self.minimap.delete("all")
+        visible = self.minimap_visible_cells(self.pos)
+        for vx, vy in visible:
+            x1 = ox + vx * cell
+            y1 = oy + vy * cell
+            self.minimap.create_rectangle(x1, y1, x1 + cell, y1 + cell, fill="#252b35", outline="")
+        self.minimap.create_rectangle(ox, oy, ox + map_w, oy + map_h, outline="#2a2d34")
         # blocks
         for bx, by in self.maze.get("blocks", []):
+            if (bx, by) not in visible:
+                continue
             x1 = ox + bx * cell
             y1 = oy + by * cell
             self.minimap.create_rectangle(x1, y1, x1 + cell, y1 + cell, fill="#333", outline="")
         # exit
         ex, ey = self.maze["exit"]
-        ex1 = ox + ex * cell
-        ey1 = oy + ey * cell
-        self.minimap.create_rectangle(ex1, ey1, ex1 + cell, ey1 + cell, fill="#ffd54f", outline="")
+        if (ex, ey) in visible:
+            ex1 = ox + ex * cell
+            ey1 = oy + ey * cell
+            self.minimap.create_rectangle(ex1, ey1, ex1 + cell, ey1 + cell, fill="#ffd54f", outline="")
         # boss
         boss_pos = self.find_boss_pos()
-        if boss_pos:
+        if boss_pos and boss_pos in visible:
             bx, by = boss_pos
             bx1 = ox + bx * cell
             by1 = oy + by * cell
             self.minimap.create_rectangle(bx1, by1, bx1 + cell, by1 + cell, fill="#ff5252", outline="")
         # mount/treasure
         mount_pos = self.find_event_pos("mount")
-        if mount_pos:
+        if mount_pos and mount_pos in visible:
             mx, my = mount_pos
             mx1 = ox + mx * cell
             my1 = oy + my * cell
             self.minimap.create_rectangle(mx1, my1, mx1 + cell, my1 + cell, fill="#00e5ff", outline="")
         treasure_pos = self.find_event_pos("treasure")
-        if treasure_pos:
+        if treasure_pos and treasure_pos in visible:
             tx, ty = treasure_pos
             tx1 = ox + tx * cell
             ty1 = oy + ty * cell

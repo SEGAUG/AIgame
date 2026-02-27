@@ -1,5 +1,6 @@
 ﻿param(
-    [switch]$Clean
+    [switch]$Clean,
+    [switch]$NoModel
 )
 
 $ErrorActionPreference = "Stop"
@@ -70,7 +71,12 @@ if (Test-Path $apk) {
     Remove-Item $apk -Force
 }
 
-Invoke-Gradle -Args @("assembleRelease")
+$gradleArgs = @("assembleRelease")
+if ($NoModel) {
+    $gradleArgs += "-PincludeModels=false"
+}
+
+Invoke-Gradle -Args $gradleArgs
 
 if (Test-Path $apk) {
     $f = Get-Item $apk

@@ -27,6 +27,10 @@ val hasReleaseSigning = !releaseStoreFile.isNullOrBlank()
     && !releaseStorePassword.isNullOrBlank()
     && !releaseKeyAlias.isNullOrBlank()
     && !releaseKeyPassword.isNullOrBlank()
+val includeModels = providers.gradleProperty("includeModels")
+    .orNull
+    ?.toBooleanStrictOrNull()
+    ?: true
 
 android {
     namespace = "com.jinhui.immortaldemo"
@@ -90,8 +94,13 @@ android {
 
     sourceSets {
         getByName("main") {
-            // package local GGUF models into APK assets for offline NPC inference
-            assets.srcDirs("src/main/assets", "../../models")
+            if (includeModels) {
+                // package local GGUF models into APK assets for offline NPC inference
+                assets.srcDirs("src/main/assets", "../../models")
+            } else {
+                // lean build: do not package local model files
+                assets.srcDirs("src/main/assets")
+            }
         }
     }
 
@@ -108,6 +117,9 @@ android {
 
 if (!hasReleaseSigning) {
     println("Warning: keystore.properties not fully configured. release apk will use debug signing.")
+}
+if (!includeModels) {
+    println("Info: includeModels=false, model assets are excluded from APK.")
 }
 
 dependencies {

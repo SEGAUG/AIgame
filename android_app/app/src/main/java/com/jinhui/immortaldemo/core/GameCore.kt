@@ -40,6 +40,21 @@ class GameCore(seed: Int = 2026) {
         NpcState("npc_yance", "焱策", "仙族", background = "仙门外放执事，重视秩序。", goal = "筛选可入门的修士。"),
         NpcState("npc_yanxing", "魇行", "魔族", background = "暗域斥候，善于探查弱点。", goal = "收集各宗门情报。"),
     )
+    private val discipleSurnames = listOf(
+        "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "褚", "卫", "蒋", "沈", "韩", "杨",
+        "朱", "秦", "尤", "许", "何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏", "陶", "姜",
+        "戚", "谢", "邹", "喻", "柏", "水", "窦", "章", "云", "苏", "潘", "葛", "奚", "范", "彭", "郎",
+        "鲁", "韦", "昌", "马", "苗", "凤", "花", "方", "俞", "任", "袁", "柳", "酆", "鲍", "史", "唐",
+        "费", "廉", "岑", "薛", "雷", "贺", "倪", "汤", "滕", "殷", "罗", "毕", "郝", "邬", "安", "常",
+        "乐", "于", "时", "傅", "皮", "卞", "齐", "康", "伍", "余", "元", "卜", "顾", "孟", "平", "黄",
+        "和", "穆", "萧", "尹", "姚", "邵", "湛", "汪", "祁", "毛", "禹", "狄", "米", "贝", "明", "臧",
+        "欧阳", "司马", "上官", "诸葛", "东方", "独孤", "夏侯", "慕容", "公孙", "司徒"
+    )
+    private val discipleGivenChars = listOf(
+        "子", "一", "云", "天", "玄", "青", "白", "赤", "寒", "星", "月", "风", "雨", "雷", "霜", "雪",
+        "川", "海", "山", "河", "松", "竹", "兰", "若", "安", "宁", "和", "清", "灵", "渊", "衡", "然",
+        "尘", "璃", "瑶", "岚", "歌", "羽", "辰", "景", "川", "峥", "岳", "衡", "芷", "瑾", "瑜", "珩"
+    )
     private val talentPool = buildTalentPool()
     private val shopStock = listOf(
         ShopItem("回复药", 5, "恢复40点生命", rarity = "白"),
@@ -109,6 +124,7 @@ class GameCore(seed: Int = 2026) {
         usedLifeIds.add(state.player.lifeId)
         nextLifeId = state.player.lifeId + 1
         loadChapter(0)
+        appendOpeningStory("start")
     }
 
     fun infoText(): String {
@@ -131,12 +147,12 @@ class GameCore(seed: Int = 2026) {
     }
 
     fun mapHintText(): String {
-        val known = exploredCells
+        val visible = visibleCellsAt(state.pos)
         val hints = mutableListOf<String>()
         hints.add("出口方向:${directionHint(state.pos, state.maze.exit)}")
-        bossMarkerPos?.takeIf { known.contains(it) }?.let { hints.add("首领方向:${directionHint(state.pos, it)}") }
-        mountMarkerPos?.takeIf { known.contains(it) }?.let { hints.add("坐骑方向:${directionHint(state.pos, it)}") }
-        treasureMarkerPos?.takeIf { known.contains(it) }?.let { hints.add("宝材方向:${directionHint(state.pos, it)}") }
+        bossMarkerPos?.takeIf { visible.contains(it) }?.let { hints.add("首领方向:${directionHint(state.pos, it)}") }
+        mountMarkerPos?.takeIf { visible.contains(it) }?.let { hints.add("坐骑方向:${directionHint(state.pos, it)}") }
+        treasureMarkerPos?.takeIf { visible.contains(it) }?.let { hints.add("宝材方向:${directionHint(state.pos, it)}") }
         return hints.joinToString(" | ")
     }
 
@@ -148,7 +164,7 @@ class GameCore(seed: Int = 2026) {
             player = state.pos,
             exit = state.maze.exit,
             blocks = state.maze.blocks.toList(),
-            explored = exploredCells.toList(),
+            explored = emptyList(),
             visible = visible.toList(),
             boss = bossMarkerPos,
             mount = mountMarkerPos,
@@ -1077,8 +1093,12 @@ class GameCore(seed: Int = 2026) {
         s.name = if (name.isBlank()) "无名宗" else name
         s.month = currentMonth()
         s.lastAutoMonth = currentMonth()
-        s.disciples.add(DiscipleState("林澜", 1, 6))
-        s.disciples.add(DiscipleState("洛渊", 1, 7))
+        val used = s.disciples.map { it.name }.toMutableSet()
+        val nameA = randomDiscipleName(used)
+        used.add(nameA)
+        val nameB = randomDiscipleName(used)
+        s.disciples.add(DiscipleState(nameA, 1, 6))
+        s.disciples.add(DiscipleState(nameB, 1, 7))
         if ((s.uniqueRelics["护宗灵印"] ?: 0) <= 0) {
             s.uniqueRelics["护宗灵印"] = 1
         }
@@ -1197,8 +1217,8 @@ class GameCore(seed: Int = 2026) {
             log("请先创建宗门")
             return false
         }
-        val names = listOf("苏渊", "顾青", "白芷", "莫离", "萧尘", "陈衡")
-        val d = DiscipleState(names.random(rng), 1, rng.nextInt(4, 10))
+        val used = s.disciples.map { it.name }.toSet()
+        val d = DiscipleState(randomDiscipleName(used), 1, rng.nextInt(4, 10))
         s.disciples.add(d)
         log("招收弟子 ${d.name}，资质 ${d.apt}")
         return true
@@ -2261,6 +2281,7 @@ class GameCore(seed: Int = 2026) {
     fun isDead(): Boolean = state.player.isDead
 
     private fun resetForLife(newName: String, lifeId: Int, deathCount: Int): Boolean {
+        state.log.clear()
         state.player.apply {
             this.name = newName
             this.lifeId = lifeId
@@ -2354,8 +2375,10 @@ class GameCore(seed: Int = 2026) {
             return false
         }
         val oldName = state.player.name
+        val oldId = state.player.lifeId
         val oldDeath = state.player.deathCount
         resetForLife(oldName, state.player.lifeId, oldDeath)
+        appendOpeningStory("restart", oldId)
         log("已重开：沿用当前ID#${state.player.lifeId}与名字重新开始")
         return true
     }
@@ -2370,6 +2393,7 @@ class GameCore(seed: Int = 2026) {
         val name = newName.trim().ifEmpty { "新生旅者$assignedId" }
         val deathCount = state.player.deathCount
         resetForLife(name, assignedId, deathCount)
+        appendOpeningStory("rebirth", oldId)
         log("新生完成：${state.player.name}（新ID#$assignedId，旧ID#$oldId 已封存）")
         return true
     }
@@ -2378,6 +2402,24 @@ class GameCore(seed: Int = 2026) {
         if (!state.player.isDead) return true
         log("你已死亡，当前ID已封存。请点击新生")
         return false
+    }
+
+    private fun appendOpeningStory(mode: String, oldId: Int = 0) {
+        val p = state.player
+        val chapter = chapters[state.chapter.idx]
+        val base = listOf(
+            "【序章】灵潮复苏三百年，凡俗王朝退居一隅，人妖魔仙四族争夺灵脉。",
+            "【身世】你名为${p.name}（ID#${p.lifeId}），以散修之身踏入${chapter.name}。",
+            "【目标】先活下来，再立宗门、收弟子、争地盘，最终问鼎天门。",
+            "【规则】陨落者会化作遗骸NPC，遗物可夺，命数不可回头。"
+        )
+        val extra = when (mode) {
+            "restart" -> "【回溯】你以同一命格重走旧路，这一次要改写开局。"
+            "rebirth" -> "【新生】旧ID#$oldId 已封存，你将以全新命格再入尘世。"
+            else -> "【开局】矿道风声如刃，第一步便是生死分界。"
+        }
+        base.forEach { log(it) }
+        log(extra)
     }
 
     private fun buildTalentPool(): List<TalentState> {
@@ -2796,6 +2838,29 @@ reply需直接回应玩家, 不超28字, 禁止模板复读.
             stage == 2 -> "中期"
             stage == 3 -> "大成"
             else -> "圆满"
+        }
+    }
+
+    private fun randomDiscipleName(existing: Set<String>): String {
+        repeat(240) {
+            val surname = discipleSurnames.random(rng)
+            val givenLen = when (surname.length) {
+                1 -> rng.nextInt(1, 4) // total 2-4
+                else -> rng.nextInt(1, 3) // total 3-4
+            }
+            val given = buildString {
+                repeat(givenLen) {
+                    append(discipleGivenChars.random(rng))
+                }
+            }
+            val full = surname + given
+            if (full.length in 2..4 && !existing.contains(full)) {
+                return full
+            }
+        }
+        while (true) {
+            val fallback = "赵" + discipleGivenChars.random(rng) + discipleGivenChars.random(rng)
+            if (!existing.contains(fallback)) return fallback
         }
     }
 
