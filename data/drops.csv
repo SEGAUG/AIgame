@@ -1,0 +1,7 @@
+﻿# id,coins,exp,equip_rate,consumable_rate,skill_drop
+drop_basic,10-30,low,0.2,0.3,none
+drop_mid,20-40,mid,0.4,0.5,none
+drop_boss_ch1,50-80,high,1.0,1.0,fist_120
+drop_boss_ch2,60-90,high,1.0,1.0,break_array;ling_root_green
+drop_boss_ch3,80-110,high,1.0,1.0,yuan_blast;source_stone
+drop_boss_ch4,90-120,high,1.0,1.0,undead_cycle;purple_armor_30%

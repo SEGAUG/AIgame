@@ -1,0 +1,35 @@
+{
+  "faction": "孙吴",
+  "people": {
+    "military_generals": [
+      {"name": "孙权", "role": ["统帅", "政治军事领袖"], "notes": "经营江东，建立孙吴"},
+      {"name": "周瑜", "role": ["统帅"], "notes": "赤壁之战关键"},
+      {"name": "鲁肃", "role": ["统帅", "外交"], "notes": "联刘抗曹的重要推手"},
+      {"name": "吕蒙", "role": ["统帅"], "notes": "夺取荆州关键人物"},
+      {"name": "陆逊", "role": ["统帅"], "notes": "夷陵之战关键"},
+      {"name": "甘宁", "role": ["猛将"], "notes": "善水战与突袭"},
+      {"name": "黄盖", "role": ["将领"], "notes": "苦肉计相关，赤壁贡献"},
+      {"name": "程普", "role": ["老将"], "notes": "江东元从"},
+      {"name": "韩当", "role": ["将领"], "notes": "江东宿将"},
+      {"name": "太史慈", "role": ["名将"], "notes": "早期名将，曾与孙策孙权并肩"},
+      {"name": "丁奉", "role": ["将领"], "notes": "吴后期重要将领"},
+      {"name": "朱然", "role": ["将领"], "notes": "守城作战表现突出"}
+    ],
+    "civil_officials": [
+      {"name": "张昭", "role": ["政务"], "notes": "江东重臣"},
+      {"name": "张纮", "role": ["谋臣"], "notes": "早期辅佐孙氏"},
+      {"name": "顾雍", "role": ["丞相/政务"], "notes": "吴国内政核心之一"},
+      {"name": "步骘", "role": ["政务", "地方治理"], "notes": "边地治理与外交"},
+      {"name": "诸葛瑾", "role": ["外交"], "notes": "蜀吴之间外交关键"},
+      {"name": "陆绩", "role": ["文臣"], "notes": "吴中文士代表之一"}
+    ]
+  },
+  "troops": [
+    {"name": "水军/舟师", "type": "navy", "features": ["舰船作战", "水上机动"], "notes": "吴的核心军种与战略优势"},
+    {"name": "水战弓弩兵", "type": "ranged", "features": ["船上齐射"], "notes": "配合水军作战"},
+    {"name": "江防守备军", "type": "infantry", "features": ["城防", "渡口防御"], "notes": "长江防线体系重要组成"},
+    {"name": "两栖机动部队", "type": "mixed", "features": ["登陆", "奇袭"], "notes": "水陆结合的战法优势"},
+    {"name": "轻骑/骑兵", "type": "cavalry", "features": ["规模相对有限"], "notes": "受地理与马源影响，非吴的最强项"},
+    {"name": "攻城/工兵", "type": "engineering", "features": ["围城器械"], "notes": "对合肥等要地争夺中重要"}
+  ]
+}

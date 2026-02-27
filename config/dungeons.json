@@ -1,0 +1,48 @@
+{
+  "dungeons": [
+    {
+      "id": "ch1_main",
+      "name": "矿洞·新手",
+      "type": "story",
+      "map": "assets/maps/1_1.png",
+      "monsters": ["mob_slime", "mob_thief"],
+      "elite": ["elite_guard"],
+      "boss": "boss_keeper",
+      "dropset": "drop_ch1",
+      "next": "ch1_boss"
+    },
+    {
+      "id": "ch1_boss",
+      "name": "矿洞·守护者",
+      "type": "story",
+      "map": "assets/maps/1_3.png",
+      "monsters": [],
+      "elite": [],
+      "boss": "boss_keeper",
+      "dropset": "drop_ch1_boss",
+      "next": "ch2_secret"
+    },
+    {
+      "id": "ch2_secret",
+      "name": "青铜仙殿·秘境",
+      "type": "secret",
+      "map": "assets/maps/2_2.png",
+      "monsters": ["mob_guardian"],
+      "elite": ["elite_hall"],
+      "boss": "boss_hallspirit",
+      "dropset": "drop_ch2",
+      "next": "ch3_boss"
+    },
+    {
+      "id": "ch3_boss",
+      "name": "紫山源脉·Boss",
+      "type": "boss",
+      "map": "assets/maps/2_3.png",
+      "monsters": [],
+      "elite": [],
+      "boss": "boss_source",
+      "dropset": "drop_ch3",
+      "next": null
+    }
+  ]
+}

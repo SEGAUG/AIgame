@@ -1,0 +1,37 @@
+
+{
+  "faction": "蜀汉",
+  "people": {
+    "military_generals": [
+      {"name": "刘备", "role": ["统帅", "政治军事领袖"], "notes": "以荆益为基，建立蜀汉"},
+      {"name": "关羽", "role": ["名将"], "notes": "荆州战线核心，后失荆州"},
+      {"name": "张飞", "role": ["名将"], "notes": "以勇猛著称，早期主力"},
+      {"name": "赵云", "role": ["名将"], "notes": "长坂坡等事迹著名"},
+      {"name": "马超", "role": ["名将"], "notes": "西凉系代表，后入蜀"},
+      {"name": "黄忠", "role": ["名将"], "notes": "定军山战事关键"},
+      {"name": "魏延", "role": ["名将"], "notes": "汉中防线与北伐中重要"},
+      {"name": "姜维", "role": ["统帅"], "notes": "后期北伐主将"},
+      {"name": "王平", "role": ["名将"], "notes": "防御与纪律见长"},
+      {"name": "张嶷", "role": ["将领"], "notes": "南中与北伐相关"},
+      {"name": "廖化", "role": ["将领"], "notes": "蜀后期持续作战"},
+      {"name": "李严", "role": ["将领", "后勤"], "notes": "前期重臣，后因军粮问题失势"}
+    ],
+    "civil_officials": [
+      {"name": "诸葛亮", "role": ["丞相", "战略家", "后勤组织"], "notes": "蜀汉中枢，北伐组织者"},
+      {"name": "法正", "role": ["谋士"], "notes": "入蜀阶段关键策士"},
+      {"name": "庞统", "role": ["谋士"], "notes": "入蜀前后策划，早逝"},
+      {"name": "蒋琬", "role": ["执政", "政务"], "notes": "诸葛亮后继的政务核心"},
+      {"name": "费祎", "role": ["执政", "外交"], "notes": "稳定蜀政的重要人物"},
+      {"name": "董允", "role": ["谏臣"], "notes": "以清正著称"},
+      {"name": "杨仪", "role": ["参谋/军务"], "notes": "北伐时期军务重要人物"}
+    ]
+  },
+  "troops": [
+    {"name": "山地步兵", "type": "infantry", "features": ["适应山地", "守险要"], "notes": "蜀地地形决定防御与机动特点"},
+    {"name": "弓弩兵", "type": "ranged", "features": ["守城/山谷伏击"], "notes": "依托险要地形发挥"},
+    {"name": "轻装机动部队", "type": "light_infantry", "features": ["奇袭", "穿插"], "notes": "北伐与山地作战常用"},
+    {"name": "白毦兵", "type": "elite_infantry", "features": ["精锐步兵"], "notes": "蜀汉较具代表性的精锐概念"},
+    {"name": "藤甲兵", "type": "special_infantry", "features": ["藤甲防护"], "notes": "多见于南中相关叙事与地方武装形态"},
+    {"name": "攻城/工兵", "type": "engineering", "features": ["攻守器械"], "notes": "北伐与守城均需要"}
+  ]
+}

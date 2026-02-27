@@ -1,0 +1,31 @@
+{
+  "chapters": [
+    {
+      "id": "ch1",
+      "name": "九龙拉棺·新手段",
+      "unlock_cond": null,
+      "entry_dungeon": "ch1_main",
+      "dialogue_id": "dlg_ch1_intro",
+      "quests": ["q_ch1_tutorial"],
+      "next": "ch2"
+    },
+    {
+      "id": "ch2",
+      "name": "青铜仙殿·秘境",
+      "unlock_cond": "clear:ch1_boss",
+      "entry_dungeon": "ch2_secret",
+      "dialogue_id": "dlg_ch2_intro",
+      "quests": ["q_ch2_clear"],
+      "next": "ch3"
+    },
+    {
+      "id": "ch3",
+      "name": "紫山源脉·Boss",
+      "unlock_cond": "clear:ch2_secret",
+      "entry_dungeon": "ch3_boss",
+      "dialogue_id": "dlg_ch3_intro",
+      "quests": ["q_ch3_boss"],
+      "next": null
+    }
+  ]
+}

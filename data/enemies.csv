@@ -1,0 +1,9 @@
+﻿# id,name,role,hp_formula,atk_formula,def_formula,crit,evade,skills
+minion,矿区凶兽,normal,70+10*lv,10+2*lv,3+0.8*lv,0.05,0.03,basic_attack
+guard,护矿者,elite,(70+10*lv)*1.8,(10+2*lv)*1.3,(3+0.8*lv)*1.3,0.05,0.03,shield_bash
+warden1,守护者,elite,(70+10*lv)*1.8,(10+2*lv)*1.3,(3+0.8*lv)*1.3,0.05,0.03,sweep_taunt
+hall_spirit,殿灵,boss,(70+10*lv)*3,(10+2*lv)*1.6,(3+0.8*lv)*1.5,0.08,0.05,reflect_aura;charge
+source_beast,源兽,elite,(70+10*lv)*1.8,(10+2*lv)*1.3,(3+0.8*lv)*1.3,0.05,0.03,bite_bleed
+source_guard,源守将,boss,(70+10*lv)*3,(10+2*lv)*1.6,(3+0.8*lv)*1.5,0.08,0.05,yuan_blast;shield_30
+undead,不死生灵,elite,(70+10*lv)*1.8,(10+2*lv)*1.3,(3+0.8*lv)*1.3,0.05,0.05,corrode_poison
+spring_keeper,守泉者,boss,(70+10*lv)*3,(10+2*lv)*1.6,(3+0.8*lv)*1.5,0.08,0.05,life_drain;self_heal15

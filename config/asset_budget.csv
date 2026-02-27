@@ -1,0 +1,6 @@
+category,max_count,notes
+texture,200MB,全局贴图内存预算
+audio,80MB,音频压缩后
+particles,50,同屏粒子发射器上限
+enemies,8,同屏小怪上限（移动端）
+projectiles,20,同屏弹道上限

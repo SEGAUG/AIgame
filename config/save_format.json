@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "player": {
+    "lvl": 1,
+    "exp": 0,
+    "hp": 120,
+    "atk": 18,
+    "def": 6,
+    "spd": 10,
+    "crit": 5,
+    "res": 5,
+    "luck": 0
+  },
+  "inventory": {
+    "items": {},
+    "relics": {},
+    "equip": { "weapon": null, "armor": null }
+  },
+  "progress": {
+    "chapter": "ch1",
+    "dungeon": "ch1_main",
+    "quests": {}
+  },
+  "settings": { "quality": "medium", "controls": "touch" },
+  "checksum": ""
+}

@@ -1,0 +1,9 @@
+{
+  "skills": [
+    {"id": "basic_atk", "name": "普攻", "type": "phys", "cost_ap": 1, "ratio": 1.0, "cd": 0, "effect": ""},
+    {"id": "skill_1", "name": "裂石斩", "type": "phys", "cost_ap": 1, "ratio": 1.4, "cd": 2, "effect": "bleed:0.05:2"},
+    {"id": "skill_2", "name": "源力冲击", "type": "mag", "cost_ap": 2, "ratio": 1.8, "cd": 3, "effect": ""},
+    {"id": "skill_3", "name": "碎甲", "type": "phys", "cost_ap": 1, "ratio": 1.1, "cd": 2, "effect": "def_down:0.2:2"},
+    {"id": "ult", "name": "星河一击", "type": "phys", "cost_ap": 3, "ratio": 2.5, "cd": 5, "effect": "stun:0.3:1"}
+  ]
+}

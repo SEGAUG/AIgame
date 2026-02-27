@@ -1,0 +1,33 @@
+{
+  "dropsets": {
+    "drop_ch1": {
+      "gold": [5, 20],
+      "exp": [8, 15],
+      "loot": ["healing_potion", "basic_sword"],
+      "relic_drop": "default"
+    },
+    "drop_ch1_boss": {
+      "gold": [20, 40],
+      "exp": [30, 50],
+      "loot": ["basic_armor", "healing_potion"],
+      "relic_drop": "boss"
+    },
+    "drop_ch2": {
+      "gold": [30, 50],
+      "exp": [40, 60],
+      "loot": ["healing_potion", "basic_armor"],
+      "relic_drop": "elite"
+    },
+    "drop_ch3": {
+      "gold": [50, 80],
+      "exp": [60, 90],
+      "loot": ["healing_potion", "basic_sword", "basic_armor"],
+      "relic_drop": "boss"
+    }
+  },
+  "relic_drop_rules": {
+    "default": {"rarity_weights": {"白": 20, "绿": 10, "蓝": 5, "紫": 2, "金": 1, "红": 0.1}},
+    "elite": {"rarity_weights": {"白": 20, "绿": 10, "蓝": 5, "紫": 2, "金": 1, "红": 0.1}, "multiplier": 2.0},
+    "boss": {"rarity_weights": {"白": 20, "绿": 10, "蓝": 5, "紫": 2, "金": 1, "红": 0.1}, "multiplier": 4.0}
+  }
+}

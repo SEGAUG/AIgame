@@ -1,0 +1,33 @@
+{
+  "dialogs": [
+    {
+      "id": "dlg_ch1_intro",
+      "lines": [
+        {"actor": "主角", "avatar": "ui/actor/player.png", "text": "这里是哪里？前方好像有异动……"},
+        {"actor": "向导", "avatar": "ui/actor/guide.png", "text": "那是九龙拉棺的余波，小心守护者。", "options": [
+          {"text": "准备战斗", "goto": "line3"}
+        ]},
+        {"actor": "主角", "avatar": "ui/actor/player.png", "text": "我来试试看。"}
+      ]
+    },
+    {
+      "id": "dlg_ch2_intro",
+      "lines": [
+        {"actor": "向导", "avatar": "ui/actor/guide.png", "text": "青铜仙殿前路布满幻阵，谨慎前进。"}
+      ]
+    },
+    {
+      "id": "dlg_ch3_intro",
+      "lines": [
+        {"actor": "向导", "avatar": "ui/actor/guide.png", "text": "紫山源脉的守护者很强大，准备好大招与恢复。"}
+      ]
+    },
+    {
+      "id": "dlg_ch1_outro",
+      "lines": [
+        {"actor": "向导", "avatar": "ui/actor/guide.png", "text": "矿洞已清理干净，前方是青铜仙殿的入口。"},
+        {"actor": "主角", "avatar": "ui/actor/player.png", "text": "继续前进，探明秘境。"}
+      ]
+    }
+  ]
+}

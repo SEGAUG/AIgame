@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+JAVA_HOME=${JAVA_HOME:-""}
+
+if [ -x "${JAVA_HOME}/bin/java" ]; then
+  JAVA_CMD="${JAVA_HOME}/bin/java"
+else
+  JAVA_CMD="java"
+fi
+
+CLASSPATH="$DIR/gradle/wrapper/gradle-wrapper.jar"
+
+exec "$JAVA_CMD" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"

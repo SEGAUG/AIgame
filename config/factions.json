@@ -1,0 +1,22 @@
+{
+  "factions": [
+    {
+      "id": "north_cavalry",
+      "name": "北境铁骑",
+      "drop_bonus": 0.08,
+      "explore_note": "骑兵侦察队在秘境周围活动，掉落略有提升。"
+    },
+    {
+      "id": "desert_trade",
+      "name": "塞外行商",
+      "drop_bonus": 0.12,
+      "explore_note": "行商带来稀有货物，秘境宝箱掉落提升。"
+    },
+    {
+      "id": "river_alliance",
+      "name": "江湖盟",
+      "drop_bonus": 0.1,
+      "explore_note": "散修结盟探索秘境，战斗掉落提升。"
+    }
+  ]
+}

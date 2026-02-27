@@ -1,0 +1,94 @@
+{
+  "rarities": [
+    {
+      "rarity": "红",
+      "items": [
+        {"id": "mr_01", "name": "赤霄金乌", "rank": "SS"},
+        {"id": "mr_02", "name": "玄黄神狮", "rank": "SS"},
+        {"id": "mr_03", "name": "苍梧灵凰", "rank": "SS"},
+        {"id": "mr_04", "name": "碧落青龙", "rank": "SS"},
+        {"id": "mr_05", "name": "撼天龙象", "rank": "SS"},
+        {"id": "mr_06", "name": "昆仑雷鹏", "rank": "SS"},
+        {"id": "mr_07", "name": "冥河幽貘", "rank": "SS"},
+        {"id": "mr_08", "name": "炼狱炎狮", "rank": "SS"},
+        {"id": "mr_09", "name": "星渊噬鲸", "rank": "SS"},
+        {"id": "mr_10", "name": "紫霆麒麟", "rank": "SS"}
+      ]
+    },
+    {
+      "rarity": "金",
+      "items": [
+        {"id": "mg_01", "name": "裂空雷雕", "rank": "S"},
+        {"id": "mg_02", "name": "玄冥巨鲲", "rank": "S"},
+        {"id": "mg_03", "name": "炎羽火凤", "rank": "S"},
+        {"id": "mg_04", "name": "铁脊暴熊", "rank": "S"},
+        {"id": "mg_05", "name": "风暴苍狼", "rank": "S"},
+        {"id": "mg_06", "name": "赤沙地龙", "rank": "S"},
+        {"id": "mg_07", "name": "寒霜雪豹", "rank": "S"},
+        {"id": "mg_08", "name": "青铜犀牛", "rank": "S"},
+        {"id": "mg_09", "name": "流光狐", "rank": "S"},
+        {"id": "mg_10", "name": "碎岩猛犸", "rank": "S"}
+      ]
+    },
+    {
+      "rarity": "紫",
+      "items": [
+        {"id": "mp_01", "name": "夜影猫", "rank": "A"},
+        {"id": "mp_02", "name": "青鬃马", "rank": "A"},
+        {"id": "mp_03", "name": "风行鹿", "rank": "A"},
+        {"id": "mp_04", "name": "铁鳞驼", "rank": "A"},
+        {"id": "mp_05", "name": "流沙蜥", "rank": "A"},
+        {"id": "mp_06", "name": "赤角牛", "rank": "A"},
+        {"id": "mp_07", "name": "霜甲龟", "rank": "A"},
+        {"id": "mp_08", "name": "轻羽鹤", "rank": "A"},
+        {"id": "mp_09", "name": "灵眼狼", "rank": "A"},
+        {"id": "mp_10", "name": "烈焰猪", "rank": "A"}
+      ]
+    },
+    {
+      "rarity": "蓝",
+      "items": [
+        {"id": "mb_01", "name": "灰羽鸟", "rank": "B"},
+        {"id": "mb_02", "name": "石甲龟", "rank": "B"},
+        {"id": "mb_03", "name": "沙漠狐", "rank": "B"},
+        {"id": "mb_04", "name": "溪流獭", "rank": "B"},
+        {"id": "mb_05", "name": "短角羊", "rank": "B"},
+        {"id": "mb_06", "name": "青背驴", "rank": "B"},
+        {"id": "mb_07", "name": "林间鹿", "rank": "B"},
+        {"id": "mb_08", "name": "粗鳞鱼", "rank": "B"},
+        {"id": "mb_09", "name": "碎石鼬", "rank": "B"},
+        {"id": "mb_10", "name": "雾隐猫", "rank": "B"}
+      ]
+    },
+    {
+      "rarity": "绿",
+      "items": [
+        {"id": "mn_01", "name": "木耳兔", "rank": "C"},
+        {"id": "mn_02", "name": "灰背狼", "rank": "C"},
+        {"id": "mn_03", "name": "浅水鸭", "rank": "C"},
+        {"id": "mn_04", "name": "黄斑鹿", "rank": "C"},
+        {"id": "mn_05", "name": "丘陵马", "rank": "C"},
+        {"id": "mn_06", "name": "短尾狐", "rank": "C"},
+        {"id": "mn_07", "name": "泥背猪", "rank": "C"},
+        {"id": "mn_08", "name": "轻足羊", "rank": "C"},
+        {"id": "mn_09", "name": "青羽鹌鹑", "rank": "C"},
+        {"id": "mn_10", "name": "石丘鼠", "rank": "C"}
+      ]
+    },
+    {
+      "rarity": "白",
+      "items": [
+        {"id": "mw_01", "name": "农场马", "rank": "C"},
+        {"id": "mw_02", "name": "灰驴", "rank": "C"},
+        {"id": "mw_03", "name": "家鹅", "rank": "C"},
+        {"id": "mw_04", "name": "村犬", "rank": "C"},
+        {"id": "mw_05", "name": "田鼠", "rank": "C"},
+        {"id": "mw_06", "name": "稻田牛", "rank": "C"},
+        {"id": "mw_07", "name": "矮脚猪", "rank": "C"},
+        {"id": "mw_08", "name": "灰麻雀", "rank": "C"},
+        {"id": "mw_09", "name": "山鸡", "rank": "C"},
+        {"id": "mw_10", "name": "草原羊", "rank": "C"}
+      ]
+    }
+  ]
+}

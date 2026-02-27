@@ -1,0 +1,40 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+# Local temp
+*.tmp
+*.bak
+tmp.txt
+
+# Large local model/build artifacts
+models/
+llama.cpp/
+
+# Android/Gradle local files
+android_app/.gradle/
+android_app/.idea/
+android_app/local.properties
+android_app/**/build/
+android_app/app/.cxx/
+android_app/app/.externalNativeBuild/
+
+# Signing secrets
+android_app/keystore.properties
+android_app/release.keystore
+*.jks
+*.keystore
+
+# Output packages
+*.apk
+*.aab
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime save files
+data/saves/

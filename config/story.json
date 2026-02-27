@@ -1,0 +1,137 @@
+{
+  "npcs": [
+    {"id": "npc_tieshuo", "name": "铁烁", "title": "玄铁铺主", "faction": "human", "background": "边城铁匠，昔年随军征战，右臂旧伤未愈。", "bio": "我本是边关军匠，随军十年，刀剑见过太多。退下后在城边开了铁铺，只求能再锻一柄不负其名的好兵。右臂旧伤仍在，但锤声不绝，便是我活着的证据。", "skills": ["断刃回炉", "焚火锻体"], "item": "玄铁火钳"},
+    {"id": "npc_lubaichuan", "name": "陆白川", "title": "白川书生", "faction": "human", "background": "书院弃徒，研读禁卷被逐，仍以文止兵。", "bio": "我曾是书院最末的学生，却最爱翻禁卷。被逐之后行走江湖，以文止兵，以理服人。若战火不息，便让我的笔替众人记下真相。", "skills": ["文心定魄", "纸雨"], "item": "墨纹书卷"},
+    {"id": "npc_fengyin", "name": "风吟", "title": "影河游侠", "faction": "neutral", "background": "游侠，寻失散同伴，熟悉各族地界。", "bio": "我叫风吟，走过四族地界，靠一把短弓讨生活。曾有一群同伴，散在战火中，我仍在找。若你见过他们，愿换你一条消息。", "skills": ["影步", "短弓连射"], "item": "影河短弓"},
+    {"id": "npc_shuangheng", "name": "霜蘅", "title": "寒渊侍女", "faction": "yao", "background": "寒渊守护者，守护封印之门。", "bio": "寒渊深处有门，门后是不能被唤醒的旧梦。我守门多年，见过太多人心。若你执意靠近，请先学会敬畏。", "skills": ["霜结", "冰心"], "item": "寒玉坠"},
+    {"id": "npc_yance", "name": "焱策", "title": "炎庭执事", "faction": "xian", "background": "玄火禁庭执事，维持试炼秩序。", "bio": "炎庭不问出身，只问火心。我负责试炼，也负责记录。每一位踏入者，我都记得他们的选择。", "skills": ["炎戒", "威仪"], "item": "玄火令"},
+    {"id": "npc_yanxing", "name": "魇行", "title": "黑雾猎手", "faction": "mo", "background": "魔域追猎者，擅长追踪与伏击。", "bio": "魔域里，弱者没有明天。我学会在黑雾里追猎，也在黑雾里被追。若你怕黑，就别跟上我的影子。", "skills": ["黑雾潜袭", "恐惧刃"], "item": "魇影匕"},
+    {"id": "npc_muli", "name": "木漓", "title": "林雾药师", "faction": "human", "background": "隐居林雾谷，专精药理与灵草。", "bio": "我在林雾谷采药行医，不问来路，只问伤处。草木有灵，能救人也能伤人，皆看你如何用它。", "skills": ["回春", "毒雾"], "item": "青木药囊"},
+    {"id": "npc_tingheng", "name": "霆衡", "title": "雷殿巡守", "faction": "xian", "background": "雷殿巡守，镇压天雷异常。", "bio": "雷殿之上，雷声不止。我受命巡守，镇压异雷。若天雷失控，四方皆劫。", "skills": ["雷引", "天罡护体"], "item": "雷纹护符"},
+    {"id": "npc_moxing", "name": "莫行", "title": "沙原商旅", "faction": "neutral", "background": "沙原商队领队，行走四方换物。", "bio": "沙原路长，货随命走。我靠信誉与脚力吃饭。若你想走远路，先学会守信。", "skills": ["趁势", "机巧烟幕"], "item": "沙银交易印"},
+    {"id": "npc_yuechi", "name": "月迟", "title": "残月剑客", "faction": "human", "background": "昔日剑宗弟子，宗门覆灭后独行。", "bio": "宗门早已不在，剑还在。我走遍各地，只为找出当年覆灭之因。残月之下，剑不归鞘。", "skills": ["残月斩", "剑意"], "item": "残月剑痕"},
+    {"id": "npc_yuanji", "name": "渊姬", "title": "幽潭引魂", "faction": "yao", "background": "守潭妖灵，擅长操控水魂。", "bio": "幽潭下沉着许多故事，我听见他们的声音。水魂与我同在，若你愿听，我可让它们告诉你真相。", "skills": ["泉魂缠身", "逆潮"], "item": "幽潭水镜"},
+    {"id": "npc_guiheng", "name": "归衡", "title": "星桥司仪", "faction": "xian", "background": "掌管星路试炼的司仪，执秩序之责。", "bio": "我只做两件事：开桥，裁决。星路之上没有侥幸，每一步都有代价。", "skills": ["星辉裁决", "星桥禁行"], "item": "星桥印"},
+    {"id": "npc_shijiang", "name": "石匠", "title": "荒土拾骨", "faction": "human", "background": "战场拾骨人，懂墓葬与机关。", "bio": "战后我来收骨，不为财，只为让亡者有名。机关与墓道是旧战留下的秩序，我熟悉它们。", "skills": ["破障", "祈骨"], "item": "荒骨匠钉"},
+    {"id": "npc_yingxi", "name": "影栖", "title": "暗市匿客", "faction": "neutral", "background": "暗市交易者，消息灵通。", "bio": "消息也是货物，只是更贵。要买情报，就用你能承担的代价。", "skills": ["隐息", "漏信"], "item": "暗市徽"},
+    {"id": "npc_kongshu", "name": "空疏", "title": "白鹤旅僧", "faction": "xian", "background": "游历四方的修行僧，心性平和。", "bio": "我走四方，渡人亦渡己。若心中有结，先放下剑，再放下执念。", "skills": ["清心", "慈悲"], "item": "白鹤念珠"},
+    {"id": "npc_lusheng", "name": "炉笙", "title": "赤纹炼器", "faction": "human", "background": "炼器师，执着打造最强器胚。", "bio": "器与人一样，要经千锤百炼才见真。我的一生只为铸出能守住誓言的器。", "skills": ["熔金", "破炉"], "item": "炉心石"},
+    {"id": "npc_rongdong", "name": "绒冬", "title": "雪原驭兽", "faction": "yao", "background": "驭兽者，与雪原异兽共生。", "bio": "雪原上，人和兽都要靠彼此活下去。我驭兽，却不驭心。", "skills": ["兽吼", "同心"], "item": "雪原兽铃"},
+    {"id": "npc_jiangdi", "name": "江堤", "title": "断桥守卒", "faction": "human", "background": "守桥军残部，誓守古桥不退。", "bio": "桥还在，我就不会走。守桥不是命令，是我给自己的承诺。", "skills": ["守势", "反击"], "item": "断桥盾"},
+    {"id": "npc_jinyu", "name": "烬语", "title": "幽火术士", "faction": "mo", "background": "魔域术士，迷恋幽火的灵魂灼烧。", "bio": "幽火能焚尽虚妄，也能焚尽人心。我曾在火中见过自己的影子，从那以后再也不信光。", "skills": ["幽火", "心焰"], "item": "幽火灯"},
+    {"id": "npc_jianglin", "name": "绛临", "title": "时隙旅者", "faction": "neutral", "background": "穿行时隙，记忆断裂者。", "bio": "我记得很多事，又像没记住任何事。时隙里的我，每一步都是迷路。", "skills": ["时停", "残影"], "item": "时砂瓶"}
+  ],
+  "chapters": {
+    "ch1": {
+      "main": "你在矿道中第一次与妖影交锋，意识到异族活动异常频繁。",
+      "side": [
+        {"id": "ch1_q1", "name": "矿道清剿", "desc": "击败战斗 3 次", "targets": {"battles": 3}, "reward": {"gold": 20, "exp": 15, "skill_pages": ["基础剑式"]}},
+        {"id": "ch1_q2", "name": "矿脉宝材", "desc": "收集宝材 1 份", "targets": {"treasures": 1}, "reward": {"gold": 15, "exp": 10}},
+        {"id": "ch1_q3", "name": "访见工匠", "desc": "与NPC对话 1 次", "targets": {"talk": 1}, "reward": {"gold": 10, "exp": 5}}
+      ],
+      "npcs": ["npc_tieshuo", "npc_lubaichuan"],
+      "events": [
+        {"id": "ch1_e1", "title": "矿道余火", "text": "你在塌方处发现残余火痕，似乎有人提前清理过妖影。", "reward": {"gold": 10, "exp": 5}}
+      ]
+    },
+    "ch2": {
+      "main": "青铜秘境的祭坛被妖族掌控，你必须夺回阵眼。",
+      "side": [
+        {"id": "ch2_q1", "name": "秘境精英", "desc": "击败精英 2 次", "targets": {"elites": 2}, "reward": {"gold": 25, "exp": 20, "method_frags": ["青铜秘境诀"]}},
+        {"id": "ch2_q2", "name": "秘境线索", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 15, "exp": 10}}
+      ],
+      "npcs": ["npc_fengyin", "npc_shuangheng"],
+      "events": [
+        {"id": "ch2_e1", "title": "祭坛低语", "text": "祭坛残留的灵纹在耳畔低语，提示阵眼方向。", "reward": {"gold": 12, "exp": 8}}
+      ]
+    },
+    "ch3": {
+      "main": "荒土试炼揭露魔族的斥候布局，你被迫迎战。",
+      "side": [
+        {"id": "ch3_q1", "name": "荒土猎影", "desc": "击败战斗 5 次", "targets": {"battles": 5}, "reward": {"gold": 30, "exp": 25}},
+        {"id": "ch3_q2", "name": "暗影刺探", "desc": "与NPC对话 1 次", "targets": {"talk": 1}, "reward": {"gold": 12, "exp": 8}}
+      ],
+      "npcs": ["npc_yanxing", "npc_muli"],
+      "events": [
+        {"id": "ch3_e1", "title": "荒土余烬", "text": "荒土残留的魔焰忽明忽暗，似在诱导你靠近。", "reward": {"gold": 14, "exp": 10}}
+      ]
+    },
+    "ch4": {
+      "main": "星路终局的试炼考验你的心性与战斗节奏。",
+      "side": [
+        {"id": "ch4_q1", "name": "星路守关", "desc": "击败首领 1 次", "targets": {"boss": 1}, "reward": {"gold": 40, "exp": 35, "blueprints": ["星桥护符"]}},
+        {"id": "ch4_q2", "name": "星桥低语", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 18, "exp": 12}}
+      ],
+      "npcs": ["npc_tingheng", "npc_guiheng"],
+      "events": [
+        {"id": "ch4_e1", "title": "星桥余辉", "text": "星桥碎片折射出古老誓言，你心神微震。", "reward": {"gold": 16, "exp": 12}}
+      ]
+    },
+    "ch5": {
+      "main": "风砂古道重开，各族争夺灵材与补给。",
+      "side": [
+        {"id": "ch5_q1", "name": "商旅护送", "desc": "击败战斗 4 次", "targets": {"battles": 4}, "reward": {"gold": 35, "exp": 28}},
+        {"id": "ch5_q2", "name": "坐骑线索", "desc": "获得坐骑 1 次", "targets": {"mounts": 1}, "reward": {"gold": 20, "exp": 15, "skill_pages": ["驭兽术"]}}
+      ],
+      "npcs": ["npc_moxing", "npc_yuechi"],
+      "events": [
+        {"id": "ch5_e1", "title": "风砂旧路", "text": "旧路石碑刻着商旅誓言，提醒你护送要诀。", "reward": {"gold": 18, "exp": 12}}
+      ]
+    },
+    "ch6": {
+      "main": "寒渊裂隙不断扩张，你必须封闭裂隙核心。",
+      "side": [
+        {"id": "ch6_q1", "name": "寒渊守望", "desc": "击败精英 2 次", "targets": {"elites": 2}, "reward": {"gold": 35, "exp": 28}},
+        {"id": "ch6_q2", "name": "寒渊引魂", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 18, "exp": 12}}
+      ],
+      "npcs": ["npc_yuanji", "npc_shijiang"],
+      "events": [
+        {"id": "ch6_e1", "title": "裂隙寒潮", "text": "寒潮涌来，裂隙核心隐约现形。", "reward": {"gold": 18, "exp": 12}}
+      ]
+    },
+    "ch7": {
+      "main": "云海幻域的幻阵让真伪难辨，只有破阵才能前进。",
+      "side": [
+        {"id": "ch7_q1", "name": "幻域清道", "desc": "击败战斗 6 次", "targets": {"battles": 6}, "reward": {"gold": 45, "exp": 35}},
+        {"id": "ch7_q2", "name": "暗市交易", "desc": "与NPC对话 1 次", "targets": {"talk": 1}, "reward": {"gold": 20, "exp": 15}}
+      ],
+      "npcs": ["npc_yingxi", "npc_lusheng"],
+      "events": [
+        {"id": "ch7_e1", "title": "幻域碎影", "text": "幻影碎裂，露出一段隐秘路线。", "reward": {"gold": 20, "exp": 15}}
+      ]
+    },
+    "ch8": {
+      "main": "玄火禁庭只允强者踏入，试炼将决定你的去留。",
+      "side": [
+        {"id": "ch8_q1", "name": "禁庭首领", "desc": "击败首领 1 次", "targets": {"boss": 1}, "reward": {"gold": 55, "exp": 45, "blueprints": ["玄火护甲"]}},
+        {"id": "ch8_q2", "name": "仙庭旧事", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 22, "exp": 16}}
+      ],
+      "npcs": ["npc_kongshu", "npc_rongdong"],
+      "events": [
+        {"id": "ch8_e1", "title": "禁庭火纹", "text": "玄火纹路浮现，似在测试你的意志。", "reward": {"gold": 22, "exp": 16}}
+      ]
+    },
+    "ch9": {
+      "main": "时隙回廊揭示旧世遗民的记忆，你开始怀疑自己的身世。",
+      "side": [
+        {"id": "ch9_q1", "name": "时隙遗宝", "desc": "获得收藏品 1 次", "targets": {"relics": 1}, "reward": {"gold": 45, "exp": 35, "method_frags": ["时隙回廊经"]}},
+        {"id": "ch9_q2", "name": "回廊访谈", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 20, "exp": 15}}
+      ],
+      "npcs": ["npc_jiangdi", "npc_jianglin"],
+      "events": [
+        {"id": "ch9_e1", "title": "回廊残梦", "text": "破碎记忆涌入，你隐约看到旧世同伴。", "reward": {"gold": 24, "exp": 18}}
+      ]
+    },
+    "ch10": {
+      "main": "万界归墟之战拉开帷幕，你的选择将决定四族未来。",
+      "side": [
+        {"id": "ch10_q1", "name": "终局猎首", "desc": "击败首领 2 次", "targets": {"boss": 2}, "reward": {"gold": 80, "exp": 60, "skill_pages": ["归墟终式"]}},
+        {"id": "ch10_q2", "name": "终局誓言", "desc": "与NPC对话 2 次", "targets": {"talk": 2}, "reward": {"gold": 30, "exp": 20}}
+      ],
+      "npcs": ["npc_jinyu", "npc_yance"],
+      "events": [
+        {"id": "ch10_e1", "title": "归墟之门", "text": "归墟之门开启，你的选择将决定四族命运。", "reward": {"gold": 30, "exp": 20}}
+      ]
+    }
+  }
+}
